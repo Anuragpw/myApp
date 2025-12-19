@@ -2,33 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Auto Refresh Page</title>
-
-    <!-- 🔄 AUTO REFRESH EVERY 5 SECONDS -->
-    <meta http-equiv="refresh" content="5">
+    <title>Simple HTML Page</title>
+     <meta http-equiv="refresh" content="5">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
-            background: #f4f6f8;
+            background-color: #f4f6f8;
+            color: #333;
             text-align: center;
-            padding-top: 50px;
         }
 
-        h1 {
-            color: #2563eb;
+        header {
+            background-color: #2563eb;
+            color: white;
+            padding: 30px 20px;
         }
 
-        p {
-            font-size: 18px;
+        main {
+            margin-top: 50px;
+        }
+
+        .card {
+            background: white;
+            width: 300px;
+            margin: 0 auto;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .status {
+            font-size: 22px;
+            font-weight: bold;
+            color: green;
+            margin-top: 15px;
+        }
+
+        footer {
+            margin-top: 60px;
+            font-size: 14px;
+            color: #777;
         }
     </style>
 </head>
 <body>
 
-    <h1>Live Status Page</h1>
-    <p>Anurag singh from schinler</p>
-    <p>Last updated via Git commit.</p>
+    <header>
+        <h1>My Simple Website</h1>
+        <p>HTML + CSS (Single File)</p>
+    </header>
+
+    <main>
+        <div class="card">
+            <h2>System Status</h2>
+            <p class="status">Anurag singh</p>
+            <p>Update this file on the server to change content.</p>
+        </div>
+    </main>
+
+    <footer>
+        © 2025 My Website
+    </footer>
 
 </body>
 </html>
