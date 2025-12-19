@@ -1,71 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Anurag singh</title>
-     <meta http-equiv="refresh" content="1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script "https://livejs.com/live.js"></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="refresh" content="1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NMIA — Ready to Take Off!</title>
+  <meta http-equiv="refresh" content="10">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f8;
-            color: #333;
-            text-align: center;
-        }
+  <!-- ✅ Poppins font: correct, invisible <link> tags -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-        header {
-            background-color: #2563eb;
-            color: white;
-            padding: 30px 20px;
-        }
+  <style>
+    :root{
+      --stage-w: 1600px;         /* 16:9 stage */
+      --stage-h: 900px;
+      --topbar-bg: transparent;  /* transparent marquee band */
+      --text: #111;
+      --panel-bg: rgba(255,255,255,0.85);
+      --border: #3a3a3a;
+      --header-bg: rgba(255,255,255,0.66);
+      --shadow: 0 6px 18px rgba(0,0,0,0.16);
+      --title-top: 110px;        /* heading vertical position */
+    }
 
-        main {
-            margin-top: 50px;
-        }
+    *{ box-sizing:border-box; }
+    html,body{ margin:0; padding:0; background:#f5f7fa; }
+    body{ font-family:'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:var(--text); }
 
-        .card {
-            background: white;
-            width: 300px;
-            margin: 0 auto;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
+    /* Stage with ONLY your external background image */
+    .stage{
+      position:relative; width:var(--stage-w); height:var(--stage-h); margin:0 auto;
+      background: url('https://www.aci-asiapac.aero/f/blog/9056/14577/0p0/Terminal%201%20%20View%20of%20Overall%20Terminal_NMIA.jpg') center/cover no-repeat;
+      overflow:hidden;
+    }
 
-        .status {
-            font-size: 22px;
-            font-weight: bold;
-            color: green;
-            margin-top: 15px;
-        }
+    /* Top marquee bar (transparent over the background) */
+    .top-bar{
+      position:absolute; left:0; right:0; top:0; height:66px;
+      background: var(--topbar-bg);       /* transparent */
+      border-bottom: none;                /* no line */
+      display:flex; align-items:center; padding:0 28px; z-index:10;
+    }
+    .top-bar marquee{
+      width:100%; color:#000; font-weight:600; letter-spacing:0.35px; background: transparent;
+    }
 
-        footer {
-            margin-top: 60px;
-            font-size: 14px;
-            color: #777;
-        }
-    </style>
+    /* Heading */
+    .title{
+      position:absolute; left:0; right:0; top:var(--title-top);
+      text-align:center; color:#000; text-transform:uppercase;
+      font-weight:800; font-size:56px; line-height:1.15; letter-spacing:0.6px;
+      text-shadow: 0 1px 1px rgba(255,255,255,0.9); z-index:7;
+    }
+
+    /* Panels & tables */
+    .sections{
+      position:absolute; left:0; right:0; top:260px;
+      display:grid; grid-template-columns: 1fr 1fr; gap:40px; padding:0 60px; z-index:7;
+    }
+    .section-title{
+      margin:0 0 12px; color:#000; font-weight:800; font-size:28px; text-transform:uppercase; letter-spacing:0.4px;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.9);
+    }
+    .panel{ background:var(--panel-bg); border:2px solid var(--border); box-shadow: var(--shadow); padding:16px 20px; }
+    table{ width:100%; border-collapse: collapse; font-size:22px; }
+    thead th{ background: var(--header-bg); color:#000; font-weight:700; padding:12px 10px; text-align:left; border:2px solid var(--border); }
+    tbody td{ background: rgba(255,255,255,0.92); padding:12px 10px; border:2px solid var(--border); }
+    .col-flight{ width:32%; } .col-status{ width:38%; } .col-pax{ width:30%; }
+    .blink{ font-weight:800; animation: blinker 1s step-start infinite; }
+    @keyframes blinker{ 50% { opacity:0; } }
+  </style>
 </head>
 <body>
+  <div class="stage">
+    <!-- Transparent marquee over the background -->
+    <div class="top-bar">
+      <marquee behavior="scroll" direction="left" scrollamount="6">
+        INDIGO, AKASA AIR, AIR INDIA EXPRESS, STAR AIR — WELCOME ABOARD!
+      </marquee>
+    </div>
 
-    <header>
-        <h1>My Simple Website</h1>
-        <p>HTML + CSS (Single File)</p>
-    </header>
+    <!-- Main heading -->
+    <div class="title">NMIA — READY TO TAKE OFF!</div>
 
-    <main>
-        <div class="card">
-            <h2>System Status</h2>
-            <p class="status">Anurag </p>
-            <p>Update this file on the server to change content.</p>
+    <!-- Sections with tables -->
+    <div class="sections">
+      <div>
+        <h2 class="section-title">READY FOR FIRST TOUCH DOWN!</h2>
+        <div class="panel">
+          <table aria-label="Arrivals">
+            <thead>
+              <tr>
+                <th class="col-flight">FLIGHT</th>
+                <th class="col-status">STATUS</th>
+                <th class="col-pax">PAX</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>6E782</td><td>TMO @ 0810hrs</td><td>195</td></tr>
+              <tr><td>IX980</td><td><span class="blink">LANDED!</span></td><td>176</td></tr>
+              <tr><td>QP758</td><td>ETA — 12:00</td><td>146</td></tr>
+            </tbody>
+          </table>
         </div>
-    </main>
+      </div>
 
-    <footer>
-        © 2025 My Website
-    </footer>
+      <div>
+        <h2 class="section-title">READY FOR FIRST FLIGHT!</h2>
+        <div class="panel">
+          <table aria-label="Departures">
+            <thead>
+              <tr>
+                <th class="col-flight">FLIGHT</th>
+                <th class="col-status">STATUS</th>
+                <th class="col-pax">PAX</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>6E123</td><td>OFF CHOCKS</td><td>123</td></tr>
+              <tr><td>IX234</td><td>OFF CHOCKS</td><td>213</td></tr>
+              <tr><td>QP3456</td><td><span class="blink">AIR BORNE!</span></td><td>180</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- /Sections -->
+  </div>
 
+  <!-- (optional) If you previously added auto-refresh, keep your <script> here -->
 </body>
 </html>
